@@ -8,8 +8,8 @@
 }
 
 .gridWrapper {
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,12 +22,18 @@
 }
 
 .grid {
-  width: 4rem;
-  height: 4rem;
+  width: 2rem;
+  height: 2rem;
   border: 1px solid black;
   transition: all 0.3s linear;
 }
 
+@media (min-width: 640px) {
+  .grid {
+    width: 4rem;
+    height: 4rem;
+  }
+}
 .grid:hover {
   background: rgba(0, 0, 0, 0.3);
   cursor: pointer;
