@@ -97,14 +97,13 @@ const App = () => {
       <div className="chessBoard">
         {grid.map((row, i) => {
           return (
-            <div className="gridRow" key={i}>
+            <div className="gridRow">
               {row.map((state, j) => {
                 if (state == 0) {
                   // not filled
                   return (
                     <div
                       className="grid"
-                      key={[i, j]}
                       onClick={() => {
                         if (currentPosition[0] == -1000) {
                           // Set as current position
@@ -116,24 +115,17 @@ const App = () => {
                   );
                 } else if (state == 1) {
                   // filled
-                  return <div className="grid black" key={[i, j]}></div>;
+                  return <div className="grid black"></div>;
                 } else if (state == 2) {
                   // current position
-                  return (
-                    <div className="grid blue" key={[i, j]}>
-                      <img
-                        src="knight.png"
-                        alt="Knight"
-                        className="knight-img"
-                      />
-                    </div>
-                  );
+                  return <div className="grid blue">
+                    <img src="knight.png" alt="Knight" className="knight-img" />
+                  </div>;
                 } else if (state == 3) {
                   // can go there
                   return (
                     <div
                       className="grid green"
-                      key={[i, j]}
                       onClick={() => {
                         setLastPosition(currentPosition);
                         setCurrentPosition([i, j]);
